@@ -21,7 +21,6 @@ router.get('/products', function(req, res){
             console.log("Error retrieving products");
         }else {
             res.json(products);
-            console.log(products)
            
         }
     });
@@ -62,14 +61,14 @@ router.put('/product/:id', function(req, res){
     console.log('Update a product');
     Product.findByIdAndUpdate(req.params.id,
     {
-        $set: {name: req.body.name, price: req.body.price, available: req.body.available, dateCreated: Date.now}
+        $set: {name: req.body.name, price: req.body.price, available: req.body.available, dateCreated: req.body.dateCreated}
     },
     {
         new: true
     },
     function(err, updatedProduct){
         if(err){
-            res.send("Error updating product");
+            res.send(err);
         }else{
             res.json(updatedProduct);
         }
