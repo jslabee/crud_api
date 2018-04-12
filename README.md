@@ -1,3 +1,4 @@
 # crud_api
-
--to start run server.js
+- git clone https://github.com/jslabee/crud_api.git
+                 and
+- start app with command (node server.js)
